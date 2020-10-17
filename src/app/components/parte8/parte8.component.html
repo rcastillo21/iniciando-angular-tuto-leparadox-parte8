@@ -1,1 +1,16 @@
-<p>parte8 works!</p>
+<form [formGroup]="signunpForm" (ngSubmit)="enviar(signunpForm.value)">
+    <label>Nombre:</label>
+    <input formControlName="nombre" type="text">
+    <br>
+    <label>Usuario:</label>
+    <input formControlName="usuario" type="text">
+    <br>
+    <label>Email:</label>
+    <input formControlName="email" type="email">
+    <div *ngIf="signunpForm.get('email').hasError('email') && signunpForm.get('email')">Ingrese Email</div>
+    <br>
+    <label>Contraseña:</label>
+    <input formControlName="clave" type="password">
+    <br>
+    <button [disabled]="signunpForm.invalid" type="submit">Enviar</button>
+</form>
